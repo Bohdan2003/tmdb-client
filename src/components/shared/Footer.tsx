@@ -1,8 +1,9 @@
 import { Typography, useColorScheme } from '@mui/material';
 
 export default function Footer() {
-  const { mode } = useColorScheme();
-  const isDark = mode === 'dark';
+  const { mode, systemMode } = useColorScheme();
+  const effectiveMode = mode === 'system' ? systemMode : mode;
+  const isDark = effectiveMode === 'dark';
 
   return (
     <footer

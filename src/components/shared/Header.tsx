@@ -16,9 +16,10 @@ const navItems = [
 ];
 
 export default function Header() {
-  const { mode, setMode } = useColorScheme();
+  const { mode, systemMode, setMode } = useColorScheme();
   const location = useLocation();
-  const isDark = mode === 'dark';
+  const effectiveMode = mode === 'system' ? systemMode : mode;
+  const isDark = effectiveMode === 'dark';
 
   const showLinearProgress = useSelector((state: RootState) => {
     const queries = state.tmdbApi?.queries;
